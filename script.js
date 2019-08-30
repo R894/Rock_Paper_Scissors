@@ -1,4 +1,6 @@
 var score = 0;
+const scoreKeeper = document.createElement('div');
+const currentWinKeeper = document.createElement('div');
 function computerPlay(){
   var x = Math.floor((Math.random() * 3) + 1);
   if(x == 1){
@@ -15,41 +17,45 @@ function playerPlay(){
 function playRound(playerSelection, computerSelection){
   if(playerSelection == "rock"){
     if(computerSelection == "rock"){
-      console.log("Draw");
+      currentWinKeeper.textContent = "Draw";
     }
     if(computerSelection =="paper"){
-      console.log("Player loses");
+      currentWinKeeper.textContent = "You Lose";
     }
     if(computerSelection =="scissors"){
-      console.log("Player wins");
+      currentWinKeeper.textContent = "You Win";
       score += 1;
     }
   }
   if(playerSelection == "paper"){
     if(computerSelection == "rock"){
-      console.log("Player wins");
+      currentWinKeeper.textContent = "You Win";
       score += 1;
     }
     if(computerSelection =="paper"){
-      console.log("Draw");
+      currentWinKeeper.textContent = "Draw";
     }
     if(computerSelection =="scissors"){
-      console.log("Player loses");
+      currentWinKeeper.textContent = "You Lose";
     }
   }
   if(playerSelection == "scissors"){
     if(computerSelection == "rock"){
-      console.log("Player loses");
+      currentWinKeeper.textContent = "You Lose";
     }
     if(computerSelection =="paper"){
-      console.log("Player wins");
+      currentWinKeeper.textContent = "You Win";
       score += 1;
     }
     if(computerSelection =="scissors"){
-      console.log("Draw");
+      currentWinKeeper.textContent = "Draw";
     }
   }
-  console.log("Score = " + score)
+  scoreKeeper.innerHTML = '<p> score = ' + score + '</p>';
 }
-var btn = document.querySelector('#btn');
-btn.addEventListener('click', playRound(playerPlay(), computerSelection()));
+var btn1 = document.querySelector('#btn1');
+btn1.addEventListener('click', playRound("rock", computerPlay()));
+var btn2 = document.querySelector('#btn2');
+btn2.addEventListener('click', playRound("paper", computerPlay()));
+var btn3 = document.querySelector('#btn3');
+btn3.addEventListener('click', playRound("scissors", computerPlay()));

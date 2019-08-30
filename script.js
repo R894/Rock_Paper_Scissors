@@ -51,8 +51,5 @@ function playRound(playerSelection, computerSelection){
   }
   console.log("Score = " + score)
 }
-playRound(playerPlay(), computerPlay());
-playRound(playerPlay(), computerPlay());
-playRound(playerPlay(), computerPlay());
-playRound(playerPlay(), computerPlay());
-playRound(playerPlay(), computerPlay());
+var btn = document.querySelector('#btn');
+btn.addEventListener('click', playRound(playerPlay(), computerSelection()));

@@ -1,4 +1,5 @@
 var score = 0;
+const container = document.querySelector('#container');
 const scoreKeeper = document.createElement('div');
 const currentWinKeeper = document.createElement('div');
 function computerPlay(){
@@ -51,11 +52,14 @@ function playRound(playerSelection, computerSelection){
       currentWinKeeper.textContent = "Draw";
     }
   }
-  scoreKeeper.innerHTML = '<p> score = ' + score + '</p>';
+  scoreKeeper.innerHTML = score;
+  container.appendChild(currentWinKeeper);
+  container.appendChild(scoreKeeper);
 }
+
 var btn1 = document.querySelector('#btn1');
-btn1.addEventListener('click', playRound("rock", computerPlay()));
+btn1.onclick = () => playRound("rock", computerPlay());
 var btn2 = document.querySelector('#btn2');
-btn2.addEventListener('click', playRound("paper", computerPlay()));
+btn2.onclick = () => playRound("paper", computerPlay());
 var btn3 = document.querySelector('#btn3');
-btn3.addEventListener('click', playRound("scissors", computerPlay()));
+btn3.onclick = () => playRound("scissors", computerPlay());
